@@ -37,6 +37,7 @@ export const shadcnComponentDefinitions = {
       description: z.string().nullable(),
       maxWidth: z.enum(["sm", "md", "lg", "full"]).nullable(),
       centered: z.boolean().nullable(),
+      className: z.string().nullable().describe("Additional CSS classes"),
     }),
     slots: ["default"],
     description:
@@ -47,11 +48,12 @@ export const shadcnComponentDefinitions = {
   Stack: {
     props: z.object({
       direction: z.enum(["horizontal", "vertical"]).nullable(),
-      gap: z.enum(["none", "sm", "md", "lg"]).nullable(),
+      gap: z.enum(["none", "sm", "md", "lg", "xl"]).nullable(),
       align: z.enum(["start", "center", "end", "stretch"]).nullable(),
       justify: z
         .enum(["start", "center", "end", "between", "around"])
         .nullable(),
+      className: z.string().nullable().describe("Additional CSS classes"),
     }),
     slots: ["default"],
     description: "Flex container for layouts",
@@ -61,7 +63,8 @@ export const shadcnComponentDefinitions = {
   Grid: {
     props: z.object({
       columns: z.number().nullable(),
-      gap: z.enum(["sm", "md", "lg"]).nullable(),
+      gap: z.enum(["sm", "md", "lg", "xl"]).nullable(),
+      className: z.string().nullable().describe("Additional CSS classes"),
     }),
     slots: ["default"],
     description: "Grid layout (1-6 columns)",

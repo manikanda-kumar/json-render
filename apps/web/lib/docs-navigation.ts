@@ -69,6 +69,7 @@ export const docsNavigation: NavSection[] = [
     items: [
       { title: "@json-render/core", href: "/docs/api/core" },
       { title: "@json-render/react", href: "/docs/api/react" },
+      { title: "@json-render/next", href: "/docs/api/next" },
       { title: "@json-render/react-pdf", href: "/docs/api/react-pdf" },
       { title: "@json-render/react-email", href: "/docs/api/react-email" },
       { title: "@json-render/shadcn", href: "/docs/api/shadcn" },

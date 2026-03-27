@@ -25,6 +25,8 @@ npm install @json-render/core @json-render/svelte
 npm install @json-render/core @json-render/solid
 # or for terminal UIs
 npm install @json-render/core @json-render/ink ink react
+# or for full Next.js apps (routes, layouts, SSR, metadata)
+npm install @json-render/core @json-render/react @json-render/next
 # or for 3D scenes
 npm install @json-render/core @json-render/react-three-fiber @react-three/fiber @react-three/drei three
 ```
@@ -127,6 +129,7 @@ function Dashboard({ spec }) {
 | `@json-render/shadcn`       | 36 pre-built shadcn/ui components (Radix UI + Tailwind CSS)            |
 | `@json-render/react-three-fiber` | React Three Fiber renderer for 3D scenes (19 built-in components)  |
 | `@json-render/react-native` | React Native renderer with standard mobile components                  |
+| `@json-render/next`         | Next.js renderer — JSON becomes full apps with routes, layouts, SSR    |
 | `@json-render/remotion`     | Remotion video renderer, timeline schema                               |
 | `@json-render/react-pdf`    | React PDF renderer for generating PDF documents from specs             |
 | `@json-render/react-email`  | React Email renderer for HTML/plain-text emails from specs             |

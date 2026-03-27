@@ -185,7 +185,7 @@ export const shadcnComponents = {
     const centeredClass = props.centered ? "mx-auto" : "";
 
     return (
-      <Card className={cn(maxWidthClass, centeredClass)}>
+      <Card className={cn(maxWidthClass, centeredClass, props.className)}>
         {(props.title || props.description) && (
           <CardHeader>
             {props.title && <CardTitle>{props.title}</CardTitle>}
@@ -206,6 +206,7 @@ export const shadcnComponents = {
       sm: "gap-2",
       md: "gap-3",
       lg: "gap-4",
+      xl: "gap-6",
     };
     const alignMap: Record<string, string> = {
       start: "items-start",
@@ -227,7 +228,14 @@ export const shadcnComponents = {
 
     return (
       <div
-        className={`flex ${isHorizontal ? "flex-row flex-wrap" : "flex-col"} ${gapClass} ${alignClass} ${justifyClass}`}
+        className={cn(
+          "flex",
+          isHorizontal ? "flex-row flex-wrap" : "flex-col",
+          gapClass,
+          alignClass,
+          justifyClass,
+          props.className,
+        )}
       >
         {children}
       </div>
@@ -247,13 +255,18 @@ export const shadcnComponents = {
       sm: "gap-2",
       md: "gap-3",
       lg: "gap-4",
+      xl: "gap-6",
     };
 
     const n = Math.max(1, Math.min(6, props.columns ?? 1));
     const cols = colsMap[n] ?? "grid-cols-1";
     const gridGap = gridGapMap[props.gap ?? "md"] ?? "gap-3";
 
-    return <div className={`grid ${cols} ${gridGap}`}>{children}</div>;
+    return (
+      <div className={cn("grid", cols, gridGap, props.className)}>
+        {children}
+      </div>
+    );
   },
 
   Separator: ({ props }: BaseComponentProps<ShadcnProps<"Separator">>) => {
