@@ -1,0 +1,86 @@
+{
+  "root": "screen",
+  "state": {
+    "profile": {
+      "name": "Ada Lovelace",
+      "email": "ada@example.com",
+      "role": "Engineer"
+    },
+    "stats": [
+      { "label": "Projects", "value": "12", "highlighted": true },
+      { "label": "Reports", "value": "38", "highlighted": false },
+      { "label": "Alerts", "value": "3", "highlighted": true }
+    ]
+  },
+  "elements": {
+    "screen": {
+      "type": "SafeArea",
+      "props": {},
+      "children": ["content"]
+    },
+    "content": {
+      "type": "ScrollContainer",
+      "props": {},
+      "children": ["stack"]
+    },
+    "stack": {
+      "type": "Column",
+      "props": { "gap": 16 },
+      "children": ["hero", "stats-list", "email-field", "save-button"]
+    },
+    "hero": {
+      "type": "Card",
+      "props": { "padding": 16 },
+      "children": ["title", "subtitle"]
+    },
+    "title": {
+      "type": "Heading",
+      "props": { "text": { "$template": "Hello ${/profile/name}" }, "level": 2 }
+    },
+    "subtitle": {
+      "type": "Paragraph",
+      "props": { "text": { "$template": "Role: ${/profile/role}" } }
+    },
+    "stats-list": {
+      "type": "Column",
+      "props": { "gap": 8 },
+      "repeat": { "statePath": "/stats" },
+      "children": ["stat-row"]
+    },
+    "stat-row": {
+      "type": "Row",
+      "props": { "gap": 12 },
+      "children": ["stat-label", "stat-value"]
+    },
+    "stat-label": {
+      "type": "Text",
+      "props": { "text": { "$item": "label" } }
+    },
+    "stat-value": {
+      "type": "Chip",
+      "props": { "label": { "$item": "value" } },
+      "visible": { "$item": "highlighted", "eq": true }
+    },
+    "email-field": {
+      "type": "TextInput",
+      "props": {
+        "label": "Email",
+        "value": { "$bindState": "/profile/email" },
+        "placeholder": "Enter email"
+      }
+    },
+    "save-button": {
+      "type": "Button",
+      "props": { "label": "Save profile" },
+      "on": {
+        "press": {
+          "action": "saveProfile",
+          "params": {
+            "email": { "$state": "/profile/email" },
+            "name": { "$state": "/profile/name" }
+          }
+        }
+      }
+    }
+  }
+}

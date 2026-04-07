@@ -10,6 +10,7 @@
       "@json-render/react-pdf",
       "@json-render/shadcn",
       "@json-render/react-native",
+      "@json-render/flutter",
       "@json-render/remotion",
       "@json-render/codegen",
       "@json-render/zustand",

@@ -15,6 +15,7 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/playground", label: "Playground" },
+  { href: "/flutter-preview", label: "Flutter Preview" },
   { href: "/examples", label: "Examples" },
   { href: "/docs", label: "Docs" },
 ];
@@ -50,6 +51,9 @@ export function Header() {
   const isActive = (href: string) => {
     if (href === "/playground") {
       return pathname === "/playground";
+    }
+    if (href === "/flutter-preview") {
+      return pathname === "/flutter-preview";
     }
     if (href === "/examples") {
       return pathname.startsWith("/examples");

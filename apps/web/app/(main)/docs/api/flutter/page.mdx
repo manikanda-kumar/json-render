@@ -1,0 +1,112 @@
+import { pageMetadata } from "@/lib/page-metadata"
+export const metadata = pageMetadata("docs/api/flutter")
+
+# @json-render/flutter
+
+Export json-render specs as Dart widget files and minimal Flutter app scaffolds.
+
+## Installation
+
+```bash
+npm install @json-render/core @json-render/flutter
+```
+
+## generateFlutterWidgetFile
+
+Generate a single Dart widget file that embeds a json-render spec and renders it through a small Flutter interpreter.
+
+```typescript
+function generateFlutterWidgetFile(
+  spec: Spec,
+  options?: FlutterExportOptions
+): GeneratedFile
+```
+
+```typescript
+import { generateFlutterWidgetFile } from "@json-render/flutter";
+
+const file = generateFlutterWidgetFile(spec, {
+  className: "GeneratedDashboard",
+});
+// { path: "lib/generated_json_render.dart", content: "..." }
+```
+
+## generateFlutterProject
+
+Generate a minimal Flutter project scaffold.
+
+```typescript
+function generateFlutterProject(
+  spec: Spec,
+  options?: FlutterExportOptions
+): GeneratedFile[]
+```
+
+```typescript
+import { generateFlutterProject } from "@json-render/flutter";
+
+const files = generateFlutterProject(spec, {
+  className: "GeneratedDashboard",
+  packageName: "generated_dashboard",
+  appTitle: "Generated Dashboard",
+});
+// pubspec.yaml, lib/main.dart, lib/generated_json_render.dart
+```
+
+## Types
+
+### GeneratedFile
+
+```typescript
+interface GeneratedFile {
+  path: string;
+  content: string;
+}
+```
+
+### FlutterExportOptions
+
+```typescript
+interface FlutterExportOptions {
+  className?: string;
+  widgetFilePath?: string;
+  appTitle?: string;
+  packageName?: string;
+}
+```
+
+## Supported Semantics
+
+- `state` initialization
+- `visible` conditions including `$and` and `$or`
+- `repeat` lists
+- prop resolution for `$state`, `$item`, `$index`, `$bindState`, `$bindItem`, `$cond`, and `$template`
+- action bindings with built-in `setState` handling plus a host `onAction` callback
+
+## Supported Components
+
+- `SafeArea`
+- `ScrollContainer`
+- `Row`
+- `Column`
+- `Container`
+- `Card`
+- `Heading`
+- `Paragraph`
+- `Label`
+- `Text`
+- `Button`
+- `Pressable`
+- `Image`
+- `Avatar`
+- `Divider`
+- `Spacer`
+- `Badge`
+- `Chip`
+- `TextInput`
+- `SearchBar`
+- `Switch`
+- `Checkbox`
+- `Slider`
+
+Unknown component types render as fallback placeholder widgets instead of being dropped silently.

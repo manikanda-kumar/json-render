@@ -32,9 +32,21 @@ import {
 } from '@json-render/codegen';
 ```
 
-### 2. Your Project (generator)
+### 2. Dedicated exporters or your project
 
-Custom code generator specific to your project and framework:
+Some export targets can live in their own package. For Flutter, use `@json-render/flutter`:
+
+```typescript
+import { generateFlutterProject } from '@json-render/flutter';
+
+const files = generateFlutterProject(spec, {
+  className: 'GeneratedDashboard',
+  packageName: 'generated_dashboard',
+  appTitle: 'Generated Dashboard',
+});
+```
+
+For targets without a dedicated package, build a project-specific generator:
 
 ```typescript
 // lib/codegen/generator.ts

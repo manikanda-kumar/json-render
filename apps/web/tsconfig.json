@@ -7,7 +7,17 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@json-render/codegen": ["../../packages/codegen/src/index.ts"],
+      "@json-render/core": ["../../packages/core/src/index.ts"],
+      "@json-render/core/store-utils": [
+        "../../packages/core/src/store-utils.ts"
+      ],
+      "@json-render/flutter": ["../../packages/flutter/src/index.ts"],
+      "@json-render/react": ["../../packages/react/src/index.ts"],
+      "@json-render/react/schema": ["../../packages/react/src/schema.ts"],
+      "@json-render/yaml": ["../../packages/yaml/src/index.ts"],
+      "@internal/react-state": ["../../packages/react-state/src/index.tsx"]
     }
   },
   "include": [
@@ -17,7 +27,5 @@
     "next.config.js",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

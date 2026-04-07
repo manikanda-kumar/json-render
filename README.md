@@ -11,6 +11,8 @@ npm install @json-render/core @json-render/react
 npm install @json-render/shadcn
 # or for React Native
 npm install @json-render/core @json-render/react-native
+# or for Flutter code export
+npm install @json-render/core @json-render/flutter
 # or for video
 npm install @json-render/core @json-render/remotion
 # or for PDF documents
@@ -130,6 +132,7 @@ function Dashboard({ spec }) {
 | `@json-render/shadcn-svelte`| 36 pre-built shadcn-svelte components (Svelte 5 + Tailwind CSS)        |
 | `@json-render/react-three-fiber` | React Three Fiber renderer for 3D scenes (19 built-in components)  |
 | `@json-render/react-native` | React Native renderer with standard mobile components                  |
+| `@json-render/flutter`      | Flutter exporter for Dart widget files and Flutter app scaffolds       |
 | `@json-render/next`         | Next.js renderer — JSON becomes full apps with routes, layouts, SSR    |
 | `@json-render/remotion`     | Remotion video renderer, timeline schema                               |
 | `@json-render/react-pdf`    | React PDF renderer for generating PDF documents from specs             |
